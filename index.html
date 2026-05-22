@@ -3,281 +3,319 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Focshift — Improve Focus in 7 Days</title>
+<title>Focshift</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: 'Outfit', sans-serif;
-    background: #000;
-      color: #fff;
-        overflow-x: hidden;
+* {
+  margin: 0;
+    padding: 0;
+      box-sizing: border-box;
+        font-family: 'Outfit', sans-serif;
         }
 
-        /* ===== NAVBAR (PILL STYLE SAFE) ===== */
-        .navbar {
-          position: fixed;
-            top: 16px;
-              left: 50%;
-                transform: translateX(-50%);
-                  width: calc(100% - 40px);
-                    max-width: 900px;
+        body {
+          background: #000;
+            color: #fff;
+              overflow-x: hidden;
+              }
 
-                      background: rgba(0, 0, 0, 0.85); /* safe glass effect */
-                        border: 1px solid #222;
-                          border-radius: 50px;
+              /* ===== NAVBAR ===== */
+              .navbar {
+                position: fixed;
+                  top: 16px;
+                    left: 50%;
+                      transform: translateX(-50%);
+                        width: calc(100% - 40px);
+                          max-width: 900px;
 
-                            padding: 12px 22px;
-                              display: flex;
-                                justify-content: space-between;
-                                  align-items: center;
-                                    z-index: 1000;
-                                    }
+                            background: rgba(0,0,0,0.9);
+                              border: 1px solid #222;
+                                border-radius: 50px;
 
-                                    .navbar.scrolled {
-                                      top: 0;
-                                        width: 100%;
-                                          border-radius: 0;
-                                            border: none;
-                                              border-bottom: 1px solid #111;
-                                                background: rgba(0,0,0,0.95);
-                                                }
+                                  display: flex;
+                                    justify-content: space-between;
+                                      align-items: center;
+                                        padding: 12px 20px;
 
-                                                .logo {
-                                                  font-size: 1.3rem;
-                                                    font-weight: 800;
-                                                      background: linear-gradient(135deg, #0066ff, #00D4FF);
-                                                        -webkit-background-clip: text;
-                                                          -webkit-text-fill-color: transparent;
-                                                          }
+                                          transition: all 0.3s ease;
+                                            z-index: 999;
+                                            }
 
-                                                          .nav-links {
-                                                            display: flex;
-                                                              gap: 8px;
-                                                                list-style: none;
+                                            .navbar.scrolled {
+                                              top: 0;
+                                                width: 100%;
+                                                  border-radius: 0;
+                                                    border: none;
+                                                      border-bottom: 1px solid #111;
+                                                      }
+
+                                                      .logo {
+                                                        font-weight: 800;
+                                                          background: linear-gradient(135deg,#0066ff,#00D4FF);
+                                                            -webkit-background-clip: text;
+                                                              -webkit-text-fill-color: transparent;
+                                                                text-decoration: none; /* no underline */
                                                                 }
 
                                                                 .nav-links a {
-                                                                  text-decoration: none;
-                                                                    color: #aaa;
-                                                                      padding: 8px 16px;
-                                                                        border-radius: 50px;
-                                                                          transition: 0.2s;
-                                                                          }
+                                                                  color: #aaa;
+                                                                    text-decoration: none;
+                                                                      margin-left: 12px;
+                                                                        padding: 8px 14px;
+                                                                          border-radius: 20px;
+                                                                            transition: 0.2s;
+                                                                            }
 
-                                                                          .nav-links a:hover {
-                                                                            background: #111;
-                                                                              color: #fff;
-                                                                              }
+                                                                            .nav-links a:hover {
+                                                                              background: #111;
+                                                                                color: #fff;
+                                                                                }
 
-                                                                              .nav-btn {
-                                                                                background: linear-gradient(135deg, #0066ff, #00D4FF);
-                                                                                  color: #fff !important;
-                                                                                    font-weight: 600;
-                                                                                    }
+                                                                                /* ===== HERO ===== */
+                                                                                .hero {
+                                                                                  min-height: 100vh;
+                                                                                    padding: 140px 20px 80px;
+                                                                                      background: linear-gradient(160deg,#0033cc,#00D4FF);
+                                                                                        text-align: center;
+                                                                                        }
 
-                                                                                    /* ===== HERO ===== */
-                                                                                    .hero {
-                                                                                      min-height: 100vh;
-                                                                                        padding: 140px 20px 80px;
+                                                                                        .hero h1 {
+                                                                                          font-size: 2.8rem;
+                                                                                            font-weight: 800;
+                                                                                              margin-bottom: 12px;
+                                                                                              }
 
-                                                                                          /* simple solid gradient (safe) */
-                                                                                            background: linear-gradient(160deg, #0033cc, #00D4FF);
+                                                                                              .hero p {
+                                                                                                opacity: 0.85;
+                                                                                                  margin-bottom: 30px;
+                                                                                                  }
 
-                                                                                              display: flex;
-                                                                                                flex-direction: column;
-                                                                                                  align-items: center;
-                                                                                                    text-align: center;
-                                                                                                    }
+                                                                                                  /* CTA BUTTON WITH PRESS EFFECT */
+                                                                                                  .btn {
+                                                                                                    display: inline-block;
+                                                                                                      padding: 16px 46px;
+                                                                                                        background: #000;
+                                                                                                          color: #00D4FF;
+                                                                                                            border: 2px solid #00D4FF;
+                                                                                                              border-radius: 50px;
+                                                                                                                font-weight: 700;
+                                                                                                                  cursor: pointer;
 
-                                                                                                    .badge {
-                                                                                                      background: rgba(255,255,255,0.15);
-                                                                                                        border: 1px solid rgba(255,255,255,0.2);
-                                                                                                          padding: 6px 16px;
-                                                                                                            border-radius: 50px;
-                                                                                                              margin-bottom: 24px;
-                                                                                                                font-size: 0.75rem;
-                                                                                                                }
-
-                                                                                                                .hero h1 {
-                                                                                                                  font-size: 3rem;
-                                                                                                                    font-weight: 800;
-                                                                                                                      margin-bottom: 16px;
+                                                                                                                    transition: 0.2s;
+                                                                                                                      position: relative;
                                                                                                                       }
 
-                                                                                                                      .subtitle {
-                                                                                                                        color: rgba(255,255,255,0.85);
-                                                                                                                          margin-bottom: 10px;
-                                                                                                                          }
+                                                                                                                      /* blue glow behind button (like you asked “1 cm effect feel”) */
+                                                                                                                      .btn::before {
+                                                                                                                        content: "";
+                                                                                                                          position: absolute;
+                                                                                                                            top: -10px;
+                                                                                                                              left: -10px;
+                                                                                                                                right: -10px;
+                                                                                                                                  bottom: -10px;
+                                                                                                                                    background: rgba(0,212,255,0.25);
+                                                                                                                                      border-radius: 60px;
+                                                                                                                                        z-index: -1;
+                                                                                                                                        }
 
-                                                                                                                          .tagline {
-                                                                                                                            color: rgba(255,255,255,0.6);
-                                                                                                                              margin-bottom: 40px;
-                                                                                                                              }
+                                                                                                                                        .btn:active {
+                                                                                                                                          transform: scale(0.96);
+                                                                                                                                            background: #00D4FF;
+                                                                                                                                              color: #000;
+                                                                                                                                              }
 
-                                                                                                                              .btn {
-                                                                                                                                display: inline-block;
-                                                                                                                                  padding: 16px 48px;
-                                                                                                                                    border-radius: 50px;
-                                                                                                                                      border: 2px solid #00D4FF;
+                                                                                                                                              /* ===== FEATURES ===== */
+                                                                                                                                              .section {
+                                                                                                                                                padding: 80px 20px;
+                                                                                                                                                  text-align: center;
+                                                                                                                                                  }
 
-                                                                                                                                        background: #000;
-                                                                                                                                          color: #00D4FF;
-                                                                                                                                            font-weight: 700;
-                                                                                                                                              text-decoration: none;
+                                                                                                                                                  .features {
+                                                                                                                                                    display: grid;
+                                                                                                                                                      grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+                                                                                                                                                        gap: 12px;
+                                                                                                                                                          margin-top: 30px;
+                                                                                                                                                          }
 
-                                                                                                                                                box-shadow: 0 0 25px rgba(0,212,255,0.3);
-                                                                                                                                                }
+                                                                                                                                                          .feature-box {
+                                                                                                                                                            background: #0d0d0d;
+                                                                                                                                                              border: 1px solid #1a1a1a;
+                                                                                                                                                                border-radius: 12px;
+                                                                                                                                                                  padding: 18px;
+                                                                                                                                                                    text-align: left;
+                                                                                                                                                                    }
 
-                                                                                                                                                .btn:hover {
-                                                                                                                                                  background: #00D4FF;
-                                                                                                                                                    color: #000;
-                                                                                                                                                    }
-
-                                                                                                                                                    /* ===== SECTIONS ===== */
-                                                                                                                                                    .section, .how-section, .plans-section, .testimonials-section {
-                                                                                                                                                      padding: 80px 20px;
-                                                                                                                                                        text-align: center;
-                                                                                                                                                        }
-
-                                                                                                                                                        .section-label {
-                                                                                                                                                          color: #00D4FF;
-                                                                                                                                                            font-size: 0.75rem;
-                                                                                                                                                              margin-bottom: 12px;
-                                                                                                                                                              }
-
-                                                                                                                                                              /* ===== CARDS ===== */
-                                                                                                                                                              .features-grid, .steps, .plans-grid, .testimonials-grid {
-                                                                                                                                                                display: flex;
-                                                                                                                                                                  flex-wrap: wrap;
-                                                                                                                                                                    gap: 16px;
-                                                                                                                                                                      justify-content: center;
-                                                                                                                                                                        margin-top: 40px;
+                                                                                                                                                                    .feature-box h3 {
+                                                                                                                                                                      font-size: 1rem;
+                                                                                                                                                                        margin-bottom: 6px;
                                                                                                                                                                         }
 
-                                                                                                                                                                        .feature, .step, .plan-card, .testimonial {
-                                                                                                                                                                          background: #0D0D0D;
-                                                                                                                                                                            border: 1px solid #1a1a1a;
-                                                                                                                                                                              border-radius: 16px;
-                                                                                                                                                                                padding: 20px;
-                                                                                                                                                                                }
+                                                                                                                                                                        .feature-box p {
+                                                                                                                                                                          font-size: 0.85rem;
+                                                                                                                                                                            color: #aaa;
+                                                                                                                                                                            }
 
-                                                                                                                                                                                /* ===== PLANS ===== */
-                                                                                                                                                                                .plan-card {
-                                                                                                                                                                                  width: 240px;
-                                                                                                                                                                                  }
+                                                                                                                                                                            /* ===== PRICING TABLE ===== */
+                                                                                                                                                                            .table {
+                                                                                                                                                                              width: 100%;
+                                                                                                                                                                                max-width: 900px;
+                                                                                                                                                                                  margin: auto;
+                                                                                                                                                                                    border-collapse: collapse;
+                                                                                                                                                                                      margin-top: 30px;
+                                                                                                                                                                                      }
 
-                                                                                                                                                                                  .plan-card.popular {
-                                                                                                                                                                                    border: 1px solid #00D4FF;
-                                                                                                                                                                                    }
-
-                                                                                                                                                                                    /* ===== CTA ===== */
-                                                                                                                                                                                    .cta-section {
-                                                                                                                                                                                      padding: 100px 20px;
-                                                                                                                                                                                        background: linear-gradient(160deg, #0033cc, #00D4FF);
-                                                                                                                                                                                          text-align: center;
-                                                                                                                                                                                          }
-
-                                                                                                                                                                                          .cta-section h2 {
-                                                                                                                                                                                            font-size: 2rem;
-                                                                                                                                                                                              margin-bottom: 16px;
+                                                                                                                                                                                      .table th, .table td {
+                                                                                                                                                                                        border-bottom: 1px solid #222;
+                                                                                                                                                                                          padding: 14px;
+                                                                                                                                                                                            text-align: center;
+                                                                                                                                                                                              font-size: 0.9rem;
                                                                                                                                                                                               }
 
-                                                                                                                                                                                              /* ===== FOOTER ===== */
-                                                                                                                                                                                              footer {
-                                                                                                                                                                                                background: #000;
-                                                                                                                                                                                                  border-top: 1px solid #111;
-                                                                                                                                                                                                    text-align: center;
-                                                                                                                                                                                                      padding: 32px;
-                                                                                                                                                                                                      }
+                                                                                                                                                                                              .table th {
+                                                                                                                                                                                                color: #00D4FF;
+                                                                                                                                                                                                }
 
-                                                                                                                                                                                                      .footer-logo {
-                                                                                                                                                                                                        font-weight: 800;
-                                                                                                                                                                                                          background: linear-gradient(135deg, #0066ff, #00D4FF);
-                                                                                                                                                                                                            -webkit-background-clip: text;
-                                                                                                                                                                                                              -webkit-text-fill-color: transparent;
+                                                                                                                                                                                                /* ===== ABOUT ===== */
+                                                                                                                                                                                                .about {
+                                                                                                                                                                                                  padding: 80px 20px;
+                                                                                                                                                                                                    text-align: center;
+                                                                                                                                                                                                      color: #aaa;
+                                                                                                                                                                                                        max-width: 600px;
+                                                                                                                                                                                                          margin: auto;
+                                                                                                                                                                                                          }
+
+                                                                                                                                                                                                          /* ===== CTA FINAL ===== */
+                                                                                                                                                                                                          .final {
+                                                                                                                                                                                                            padding: 80px 20px;
+                                                                                                                                                                                                              text-align: center;
                                                                                                                                                                                                               }
 
-                                                                                                                                                                                                              /* MOBILE */
-                                                                                                                                                                                                              @media (max-width: 480px) {
-                                                                                                                                                                                                                .hero h1 { font-size: 2.2rem; }
-                                                                                                                                                                                                                  .plan-card { width: 100%; }
-                                                                                                                                                                                                                  }
-                                                                                                                                                                                                                  </style>
-                                                                                                                                                                                                                  </head>
+                                                                                                                                                                                                              .instagram {
+                                                                                                                                                                                                                color: #00D4FF;
+                                                                                                                                                                                                                  text-decoration: none;
+                                                                                                                                                                                                                    font-weight: 600;
+                                                                                                                                                                                                                    }
 
-                                                                                                                                                                                                                  <body>
+                                                                                                                                                                                                                    /* NAV SCROLL JS */
+                                                                                                                                                                                                                    </style>
+                                                                                                                                                                                                                    </head>
 
-                                                                                                                                                                                                                  <nav class="navbar" id="navbar">
-                                                                                                                                                                                                                    <a class="logo" href="#">Focshift</a>
-                                                                                                                                                                                                                      <ul class="nav-links">
-                                                                                                                                                                                                                          <li><a href="#">Home</a></li>
-                                                                                                                                                                                                                              <li><a href="#">About</a></li>
-                                                                                                                                                                                                                                  <li><a href="#">Plans</a></li>
-                                                                                                                                                                                                                                      <li><a class="nav-btn" href="#">Login</a></li>
-                                                                                                                                                                                                                                        </ul>
-                                                                                                                                                                                                                                        </nav>
+                                                                                                                                                                                                                    <body>
 
-                                                                                                                                                                                                                                        <div class="hero">
-                                                                                                                                                                                                                                          <div class="badge">✦ Built for Students</div>
-                                                                                                                                                                                                                                            <h1>Improve Your Focus in 7 Days</h1>
-                                                                                                                                                                                                                                              <p class="subtitle">Structured program to remove distractions</p>
-                                                                                                                                                                                                                                                <p class="tagline">No AI fluff. Just results.</p>
-                                                                                                                                                                                                                                                  <a class="btn" href="#">Get Started →</a>
-                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                    <!-- NAV -->
+                                                                                                                                                                                                                    <div class="navbar" id="nav">
+                                                                                                                                                                                                                      <a class="logo" href="#">Focshift</a>
+                                                                                                                                                                                                                        <div class="nav-links">
+                                                                                                                                                                                                                            <a href="#">Home</a>
+                                                                                                                                                                                                                                <a href="#">Plans</a>
+                                                                                                                                                                                                                                    <a href="#">Login</a>
+                                                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                                                      </div>
 
-                                                                                                                                                                                                                                                  <div class="section">
-                                                                                                                                                                                                                                                    <p class="section-label">Why Focshift</p>
-                                                                                                                                                                                                                                                      <h2>Everything You Need</h2>
+                                                                                                                                                                                                                                      <!-- HERO -->
+                                                                                                                                                                                                                                      <section class="hero">
+                                                                                                                                                                                                                                        <h1>Improve Focus in 7 Days</h1>
+                                                                                                                                                                                                                                          <p>Simple system for students to remove distraction and build discipline</p>
+                                                                                                                                                                                                                                            <button class="btn">Get Started</button>
+                                                                                                                                                                                                                                            </section>
 
-                                                                                                                                                                                                                                                        <div class="features-grid">
-                                                                                                                                                                                                                                                            <div class="feature">7 Day Program</div>
-                                                                                                                                                                                                                                                                <div class="feature">Daily Tasks</div>
-                                                                                                                                                                                                                                                                    <div class="feature">Tracking</div>
-                                                                                                                                                                                                                                                                        <div class="feature">Reminders</div>
-                                                                                                                                                                                                                                                                          </div>
-                                                                                                                                                                                                                                                                          </div>
+                                                                                                                                                                                                                                            <!-- FEATURES -->
+                                                                                                                                                                                                                                            <section class="section">
+                                                                                                                                                                                                                                              <h2>Features</h2>
 
-                                                                                                                                                                                                                                                                          <div class="how-section">
-                                                                                                                                                                                                                                                                            <h2>How It Works</h2>
+                                                                                                                                                                                                                                                <div class="features">
 
-                                                                                                                                                                                                                                                                              <div class="steps">
-                                                                                                                                                                                                                                                                                  <div class="step">1. Choose Plan</div>
-                                                                                                                                                                                                                                                                                      <div class="step">2. Follow Tasks</div>
-                                                                                                                                                                                                                                                                                          <div class="step">3. Reset Focus</div>
-                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                    <div class="feature-box">
+                                                                                                                                                                                                                                                          <h3>🗓️ Daily Plan</h3>
+                                                                                                                                                                                                                                                                <p>Step-by-step 7 day system</p>
+                                                                                                                                                                                                                                                                    </div>
 
-                                                                                                                                                                                                                                                                                            <div class="plans-section">
-                                                                                                                                                                                                                                                                                              <h2>Pricing</h2>
+                                                                                                                                                                                                                                                                        <div class="feature-box">
+                                                                                                                                                                                                                                                                              <h3>🎯 Focus Tasks</h3>
+                                                                                                                                                                                                                                                                                    <p>Small tasks to build discipline</p>
+                                                                                                                                                                                                                                                                                        </div>
 
-                                                                                                                                                                                                                                                                                                <div class="plans-grid">
-                                                                                                                                                                                                                                                                                                    <div class="plan-card">Free</div>
-                                                                                                                                                                                                                                                                                                        <div class="plan-card popular">Pro</div>
-                                                                                                                                                                                                                                                                                                            <div class="plan-card">Premium</div>
-                                                                                                                                                                                                                                                                                                              </div>
-                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                            <div class="feature-box">
+                                                                                                                                                                                                                                                                                                  <h3>📈 Progress</h3>
+                                                                                                                                                                                                                                                                                                        <p>Track your improvement</p>
+                                                                                                                                                                                                                                                                                                            </div>
 
-                                                                                                                                                                                                                                                                                                              <div class="cta-section">
-                                                                                                                                                                                                                                                                                                                <h2>Ready to Start?</h2>
-                                                                                                                                                                                                                                                                                                                  <a class="btn" href="#">Start Now</a>
-                                                                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                                                                <div class="feature-box">
+                                                                                                                                                                                                                                                                                                                      <h3>🔔 Reminders</h3>
+                                                                                                                                                                                                                                                                                                                            <p>Stay consistent every day</p>
+                                                                                                                                                                                                                                                                                                                                </div>
 
-                                                                                                                                                                                                                                                                                                                  <footer>
-                                                                                                                                                                                                                                                                                                                    <div class="footer-logo">Focshift</div>
-                                                                                                                                                                                                                                                                                                                      <p>Built for students worldwide</p>
-                                                                                                                                                                                                                                                                                                                      </footer>
+                                                                                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                                                                                  </section>
 
-                                                                                                                                                                                                                                                                                                                      <script>
-                                                                                                                                                                                                                                                                                                                      const navbar = document.getElementById("navbar");
+                                                                                                                                                                                                                                                                                                                                  <!-- PRICING -->
+                                                                                                                                                                                                                                                                                                                                  <section class="section">
+                                                                                                                                                                                                                                                                                                                                    <h2>Pricing</h2>
 
-                                                                                                                                                                                                                                                                                                                      window.addEventListener("scroll", () => {
-                                                                                                                                                                                                                                                                                                                        navbar.classList.toggle("scrolled", window.scrollY > 50);
-                                                                                                                                                                                                                                                                                                                        });
-                                                                                                                                                                                                                                                                                                                        </script>
+                                                                                                                                                                                                                                                                                                                                      <table class="table">
+                                                                                                                                                                                                                                                                                                                                          <tr>
+                                                                                                                                                                                                                                                                                                                                                <th>Feature</th>
+                                                                                                                                                                                                                                                                                                                                                      <th>Free</th>
+                                                                                                                                                                                                                                                                                                                                                            <th>Pro</th>
+                                                                                                                                                                                                                                                                                                                                                                  <th>Premium</th>
+                                                                                                                                                                                                                                                                                                                                                                      </tr>
 
-                                                                                                                                                                                                                                                                                                                        </body>
-                                                                                                                                                                                                                                                                                                                        </html>
+                                                                                                                                                                                                                                                                                                                                                                          <tr>
+                                                                                                                                                                                                                                                                                                                                                                                <td>7 Day Program</td>
+                                                                                                                                                                                                                                                                                                                                                                                      <td>✔</td>
+                                                                                                                                                                                                                                                                                                                                                                                            <td>✔</td>
+                                                                                                                                                                                                                                                                                                                                                                                                  <td>✔</td>
+                                                                                                                                                                                                                                                                                                                                                                                                      </tr>
+
+                                                                                                                                                                                                                                                                                                                                                                                                          <tr>
+                                                                                                                                                                                                                                                                                                                                                                                                                <td>Resets</td>
+                                                                                                                                                                                                                                                                                                                                                                                                                      <td>5</td>
+                                                                                                                                                                                                                                                                                                                                                                                                                            <td>Unlimited</td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                  <td>Unlimited</td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                      </tr>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                          <tr>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                <td>Habit Tracker</td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                      <td>❌</td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td>PDF</td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <td>In App</td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </tr>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <tr>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <td>Motivation</td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <td>Basic</td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <td>Quotes</td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <td>Advanced</td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </tr>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </table>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </section>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <!-- ABOUT -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <section class="about">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <h2>What is Focshift?</h2>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Focshift is a 7-day focus training system built for students.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    It helps remove distraction and build discipline step by step.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </section>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <!-- FINAL -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <section class="final">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <h2>Start Your Reset</h2>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <p>Follow us on Instagram</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <a class="instagram" href="https://instagram.com/refocus.systems">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @refocus.systems
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </section>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  window.addEventListener("scroll", () => {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    document.getElementById("nav").classList.toggle("scrolled", window.scrollY > 40);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    });
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </script>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </body>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </html>
