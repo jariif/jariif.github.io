@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plans — Focshift</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Outfit',sans-serif;
+    }
+
+    body{
+      background:#000;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+
+      width:100%;
+
+      background:#000;
+
+      border-bottom:1px solid #111;
+
+      padding:14px 20px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      z-index:999;
+    }
+
+    .logo{
+      font-size:1.2rem;
+      font-weight:800;
+
+      background:linear-gradient(135deg,#0066ff,#00D4FF);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+
+      text-decoration:none;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:8px;
+
+      list-style:none;
+    }
+
+    .nav-links a{
+      color:#888;
+
+      text-decoration:none;
+
+      font-size:0.85rem;
+
+      padding:8px 14px;
+
+      border-radius:24px;
+
+      transition:0.2s;
+    }
+
+    .nav-links a:hover{
+      background:#111;
+      color:#fff;
+    }
+
+    .nav-btn{
+      background:#00D4FF;
+      color:#000 !important;
+      font-weight:700 !important;
+    }
+
+    @media(max-width:600px){
+      .hide-mobile{
+        display:none;
+      }
+    }
+
+    /* ===== HEADING ===== */
+
+    .heading{
+      padding:120px 20px 50px;
+      text-align:center;
+    }
+
+    .label{
+      color:#00D4FF;
+
+      font-size:0.75rem;
+
+      text-transform:uppercase;
+
+      letter-spacing:2px;
+
+      margin-bottom:12px;
+    }
+
+    .heading h1{
+      font-size:2.3rem;
+      font-weight:800;
+
+      margin-bottom:12px;
+    }
+
+    .heading p{
+      color:#888;
+      font-size:0.95rem;
+    }
+
+    /* ===== PLANS ===== */
+
+    .plans{
+      padding:0 20px 70px;
+
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+
+      justify-content:center;
+    }
+
+    .card{
+      width:100%;
+      max-width:320px;
+
+      background:#0D0D0D;
+
+      border:1px solid #1a1a1a;
+
+      border-radius:24px;
+
+      padding:24px;
+    }
+
+    .popular{
+      border-color:#00D4FF;
+    }
+
+    .plan-name{
+      font-size:0.8rem;
+      font-weight:700;
+
+      color:#00D4FF;
+
+      letter-spacing:2px;
+
+      text-transform:uppercase;
+
+      margin-bottom:8px;
+    }
+
+    .price{
+      font-size:2.6rem;
+      font-weight:800;
+
+      margin-bottom:6px;
+    }
+
+    .price span{
+      font-size:1rem;
+      color:#555;
+      font-weight:400;
+    }
+
+    .badge{
+      display:inline-block;
+
+      background:#00D4FF;
+      color:#000;
+
+      font-size:0.7rem;
+      font-weight:700;
+
+      padding:4px 12px;
+
+      border-radius:20px;
+
+      margin-bottom:14px;
+    }
+
+    .divider{
+      height:1px;
+      background:#1a1a1a;
+
+      margin:16px 0;
+    }
+
+    ul{
+      list-style:none;
+
+      display:flex;
+      flex-direction:column;
+
+      gap:11px;
+
+      margin-bottom:24px;
+    }
+
+    li{
+      font-size:0.9rem;
+
+      color:#888;
+
+      display:flex;
+      align-items:center;
+
+      gap:10px;
+    }
+
+    .on{
+      color:#fff;
+    }
+
+    .c{
+      color:#00D4FF;
+    }
+
+    .x{
+      color:#333;
+    }
+
+    /* ===== BUTTONS ===== */
+
+    .btn{
+      display:block;
+
+      width:100%;
+
+      text-align:center;
+
+      text-decoration:none;
+
+      padding:13px;
+
+      border-radius:24px;
+
+      font-size:0.95rem;
+      font-weight:700;
+
+      transition:0.2s;
+    }
+
+    .btn-outline{
+      border:1px solid #222;
+      color:#aaa;
+      background:#111;
+    }
+
+    .btn-outline:hover{
+      border-color:#00D4FF;
+      color:#00D4FF;
+    }
+
+    .btn-main{
+      background:#00D4FF;
+      color:#000;
+    }
+
+    .btn-main:hover{
+      opacity:0.92;
+    }
+
+    /* ===== SIGN IN ===== */
+
+    .signin{
+      text-align:center;
+      padding:0 20px 70px;
+    }
+
+    .signin p{
+      color:#555;
+      margin-bottom:16px;
+      font-size:0.9rem;
+    }
+
+    .signin-btn{
+      display:inline-block;
+
+      padding:13px 34px;
+
+      border:1px solid #00D4FF;
+
+      border-radius:24px;
+
+      color:#00D4FF;
+
+      text-decoration:none;
+
+      font-weight:700;
+    }
+
+    /* ===== FOOTER ===== */
+
+    footer{
+      border-top:1px solid #111;
+
+      padding:24px 20px;
+
+      text-align:center;
+    }
+
+    .footer-logo{
+      font-size:1.1rem;
+      font-weight:800;
+
+      background:linear-gradient(135deg,#0066ff,#00D4FF);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+
+      margin-bottom:8px;
+    }
+
+    footer p{
+      font-size:0.75rem;
+      color:#444;
+    }
+
+    footer span{
+      color:#00D4FF;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+
+  <nav>
+
+    <a href="index.html" class="logo">Focshift</a>
+
+    <ul class="nav-links">
+      <li class="hide-mobile">
+        <a href="index.html">Home</a>
+      </li>
+
+      <li class="hide-mobile">
+        <a href="plans.html">Plans</a>
+      </li>
+
+      <li>
+        <a href="login.html" class="nav-btn">Login</a>
+      </li>
+    </ul>
+
+  </nav>
+
+  <!-- ===== HEADING ===== -->
+
+  <section class="heading">
+
+    <p class="label">✦ Pricing</p>
+
+    <h1>Simple, Honest Plans</h1>
+
+    <p>Start free. Upgrade whenever you're ready.</p>
+
+  </section>
+
+  <!-- ===== PLANS ===== -->
+
+  <section class="plans">
+
+    <!-- FREE -->
+
+    <div class="card">
+
+      <div class="plan-name">Free</div>
+
+      <div class="price">$0<span>/mo</span></div>
+
+      <div class="divider"></div>
+
+      <ul>
+        <li class="on"><span class="c">✦</span> Full 7-day program</li>
+
+        <li class="on"><span class="c">✦</span> 5 resets total</li>
+
+        <li class="on"><span class="c">✦</span> Daily challenges</li>
+
+        <li class="on"><span class="c">✦</span> Basic motivation</li>
+
+        <li><span class="x">✕</span> Progress tracking</li>
+
+        <li><span class="x">✕</span> Habit tracker</li>
+
+        <li><span class="x">✕</span> Unlimited resets</li>
+
+        <li><span class="x">✕</span> AI coach</li>
+      </ul>
+
+      <a href="signup.html" class="btn btn-outline">
+        Grab Free →
+      </a>
+
+    </div>
+
+    <!-- PRO -->
+
+    <div class="card popular">
+
+      <div class="plan-name">Pro</div>
+
+      <div class="price">$6<span>/mo</span></div>
+
+      <div class="badge">Most Popular</div>
+
+      <div class="divider"></div>
+
+      <ul>
+        <li class="on"><span class="c">✦</span> Full 7-day program</li>
+
+        <li class="on"><span class="c">✦</span> Unlimited resets</li>
+
+        <li class="on"><span class="c">✦</span> Daily challenges</li>
+
+        <li class="on"><span class="c">✦</span> Progress tracking</li>
+
+        <li class="on"><span class="c">✦</span> Basic in-app tracker</li>
+
+        <li class="on"><span class="c">✦</span> Motivation quotes</li>
+
+        <li class="on"><span class="c">✦</span> New monthly programs</li>
+
+        <li><span class="x">✕</span> AI coach</li>
+      </ul>
+
+      <a href="signup.html" class="btn btn-main">
+        Grab Pro →
+      </a>
+
+    </div>
+
+    <!-- PREMIUM -->
+
+    <div class="card">
+
+      <div class="plan-name">Premium</div>
+
+      <div class="price">$10<span>/mo</span></div>
+
+      <div class="divider"></div>
+
+      <ul>
+        <li class="on"><span class="c">✦</span> Full 7-day program</li>
+
+        <li class="on"><span class="c">✦</span> Unlimited resets</li>
+
+        <li class="on"><span class="c">✦</span> Daily challenges</li>
+
+        <li class="on"><span class="c">✦</span> Progress tracking</li>
+
+        <li class="on"><span class="c">✦</span> Advanced in-app tracker</li>
+
+        <li class="on"><span class="c">✦</span> Streaks & stats</li>
+
+        <li class="on"><span class="c">✦</span> New monthly programs</li>
+
+        <li class="on"><span class="c">✦</span> AI coach (coming soon)</li>
+      </ul>
+
+      <a href="signup.html" class="btn btn-outline">
+        Grab Premium →
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- ===== SIGN IN ===== -->
+
+  <section class="signin">
+
+    <p>Already have an account?</p>
+
+    <a href="login.html" class="signin-btn">
+      Sign In →
+    </a>
+
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+
+  <footer>
+
+    <div class="footer-logo">Focshift</div>
+
+    <p>by <span>Focshift</span> · © 2026</p>
+
+  </footer>
+
+</body>
+</html>
