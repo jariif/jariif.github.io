@@ -1,0 +1,9 @@
+{
+"name":"Focshift",
+"short_name":"Focshift",
+"start_url":"app-free.html",
+"display":"standalone",
+"background_color":"#000000",
+"theme_color":"#00ffff",
+"icons":[]
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Focshift - 7 Day Focus Reset</title>
+
+<link rel="manifest" href="manifestfree.json">
+
+<style>
+body {
+margin:0;
+font-family:system-ui;
+background: linear-gradient(135deg,#001a1a,#000000);
+color:white;
+}
+
+.navbar{
+position:fixed;
+top:10px;
+left:10px;
+right:10px;
+padding:12px;
+border-radius:20px;
+backdrop-filter: blur(12px);
+background: rgba(0,255,255,0.1);
+display:flex;
+justify-content:space-between;
+}
+
+.title{
+font-family: "Space Grotesk";
+background: linear-gradient(cyan,blue);
+-webkit-background-clip:text;
+color:transparent;
+font-size:14px;
+}
+
+.day-card{
+margin-top:100px;
+padding:20px;
+transition:0.4s;
+}
+
+.hidden{
+opacity:0.3;
+pointer-events:none;
+filter:blur(2px);
+}
+
+button{
+padding:12px;
+border-radius:12px;
+border:none;
+cursor:pointer;
+}
+
+.green{background:green;color:white;}
+.blue{background:blue;color:white;}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<div class="title">Focshift</div>
+<div><b>7 Days Focus Reset - Free</b></div>
+</div>
+
+<div id="app"></div>
+
+<script src="js/storage.js"></script>
+<script src="js/xpengine.js"></script>
+<script src="js/days.js"></script>
+<script src="js/unlockengfree.js"></script>
+<script src="js/timerfree.js"></script>
+<script src="js/mcqengfree.js"></script>
+<script src="js/enginefree.js"></script>
+
+</body>
+</html>
